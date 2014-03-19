@@ -46,15 +46,17 @@ def score_board(the_player):
 	score_file.write(str(scores))
 	score_file.close()
 
-	sorted_scores = sorted(scores.iteritems(), key = operator.itemgetter(1))
+	sorted_scores = sorted(scores.iteritems(), key = operator.itemgetter(1), reverse = True)
 
+	print "\n"
 	print "*" * 80
 	print "*** SCOREBOARD ***"
 	print "*" * 80
-	print "\n"
 	
 	for name, score in sorted_scores:
 		print name, " ....... ", score
+
+
 
 
 

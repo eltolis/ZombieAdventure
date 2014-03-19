@@ -56,10 +56,10 @@ def load():
 			print "Age: ", load_file.readline().strip("\n")
 			print "Is male: ", load_file.readline().strip("\n")
 			print "Inventory: ", load_file.readline().strip("\n")
-			load_file.readline().str("\n") # max_hitpoints
+			load_file.readline().strip("\n") 
 			print "Hitpoints: ", load_file.readline().strip("\n")
 			print "Location: ", load_file.readline().strip("\n")
-			load_file.readline().strip("\n") # visited
+			load_file.readline().strip("\n")
 			print "Score: ", load_file.readline().strip("\n")
 			load_file.readline().strip("\n")
 			print "Save file:", load_file_name
