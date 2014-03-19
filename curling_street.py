@@ -3,6 +3,8 @@ import random
 import prompt
 import custom_error
 import score
+import fight
+import death
 
 def enter(the_player):
 	the_player.location = 'Curling Street'
@@ -33,6 +35,11 @@ def enter(the_player):
 		print "You see a gun on the floor."
 	
 	while True:
+		if the_player.hitpoints <= 0:
+			death.type(3, the_player)
+		else:
+			pass
+
 		action = prompt.standard(the_player)
 
 		if action == "apartment":
@@ -45,6 +52,8 @@ def enter(the_player):
 			print "You take the gun which has %d bullets in it." % bullets
 		elif action == "gun":
 			print "You already have the gun!"
+		elif action == "hit":
+			fight.hit(the_player, 8.3)
 		else:
 			custom_error.errortype(3)
 

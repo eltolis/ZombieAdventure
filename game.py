@@ -25,7 +25,7 @@ class Engine(object):
 			
 			get_next_map = current_map.enter(self.the_player)
 			current_map = Maps.map_dict.get(get_next_map)
-			
+
 
 class Maps(object):
 
