@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import glob
 import os.path
 import time
@@ -16,6 +18,7 @@ def save(the_player):
 	save_file.write(str(the_player.age) + "\n")
 	save_file.write(str(the_player.male) + "\n")
 	save_file.write(str(the_player.inventory) + "\n")
+	save_file.write(str(the_player.max_hitpoints) + "\n")
 	save_file.write(str(the_player.hitpoints) + "\n")
 	save_file.write(str(the_player.location) + "\n")
 	save_file.write(str(the_player.visited) + "\n")
@@ -53,9 +56,10 @@ def load():
 			print "Age: ", load_file.readline().strip("\n")
 			print "Is male: ", load_file.readline().strip("\n")
 			print "Inventory: ", load_file.readline().strip("\n")
+			load_file.readline().str("\n") # max_hitpoints
 			print "Hitpoints: ", load_file.readline().strip("\n")
 			print "Location: ", load_file.readline().strip("\n")
-			load_file.readline().strip("\n")
+			load_file.readline().strip("\n") # visited
 			print "Score: ", load_file.readline().strip("\n")
 			load_file.readline().strip("\n")
 			print "Save file:", load_file_name
@@ -69,6 +73,7 @@ def load():
 			load_player_age = load_file.readline().strip("\n")
 			load_player_male = load_file.readline().strip("\n")
 			load_player_inventory = load_file.readline().strip("\n")
+			load_player_max_hitpoints = load_file.readline().strip("\n")
 			load_player_hitpoints = load_file.readline().strip("\n")
 			load_player_location = load_file.readline().strip("\n")
 			load_player_visited = load_file.readline().strip("\n")
@@ -78,6 +83,7 @@ def load():
 			load_file.close()
 
 			load_player_age = convert_save_file(load_player_age)
+			load_player_max_hitpoints = convert_save_file(load_player_max_hitpoints)
 			load_player_hitpoints = convert_save_file(load_player_hitpoints)
 			load_player_male = convert_save_file(load_player_male)
 			load_player_inventory = convert_save_file(load_player_inventory)
@@ -89,9 +95,10 @@ def load():
 
 				load_player = player.Player(load_player_name, 
 									load_player_age, load_player_male, 
-									load_player_inventory, load_player_hitpoints, 
-									load_player_location, load_player_visited,
-									load_player_score, load_player_directions)
+									load_player_inventory, load_player_max_hitpoints, 
+									load_player_hitpoints, load_player_location, 
+									load_player_visited, load_player_score, 
+									load_player_directions)
 
 				load_game = game.Engine(load_player, load_player_location)
 				load_game.move()

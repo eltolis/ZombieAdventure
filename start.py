@@ -43,11 +43,16 @@ def splash_screen():
 					death.type(1, the_player)
 				else:
 					pass
+	
+
+				print chr(27) + "[2J"
+
+				splashscreen.new_game()
+				custom_error.errortype(4)
 
 				prompt.game_help()
 				custom_error.errortype(4)
-				print chr(27) + "[2J"
-
+				
 				a_game = game.Engine(the_player, 'Apartment')
 				a_game.move()
 

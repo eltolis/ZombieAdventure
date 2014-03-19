@@ -1,18 +1,20 @@
+import random
 import sys
+import copy
 import custom_error
 import prompt
 import game
-import random
 
 class Player(object):
 
 	def __init__(self,name,age,male,
-				inventory, hitpoints, 
+				inventory, max_hitpoints,hitpoints, 
 				location, visited, score,directions):
 		self.name = name
 		self.age = age
 		self.male = male
 		self.inventory = inventory
+		self.max_hitpoints = max_hitpoints
 		self.hitpoints = hitpoints
 		self.location = location
 		self.visited = visited
@@ -93,9 +95,12 @@ class CreateNewPlayer(object):
 				hitpoints = random.randint(27,29) * female_hp_bonus
 			else:
 				hitpoints = random.randint(16,22) * female_hp_bonus
+
+		
+		max_hitpoints = copy.deepcopy(hitpoints)
 			
 
-		return name, age, male, {}, hitpoints, 'apartment', [], 0, []
+		return name, age, male, {}, max_hitpoints, hitpoints, 'apartment', [], 0, []
 
 
 

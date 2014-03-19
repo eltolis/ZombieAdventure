@@ -38,12 +38,12 @@ def enter(the_player):
 		if action == "apartment":
 			return the_player.directions[0]
 			break
-		elif action == "take gun" and not 'gun' in the_player.inventory.keys():
+		elif action == "gun" and not 'gun' in the_player.inventory.keys():
 			bullets = random.randint(5,10)
 			the_player.inventory['gun'] = bullets
 			get_score = score.calculate(the_player, 'gun')
 			print "You take the gun which has %d bullets in it." % bullets
-		elif action == "take gun":
+		elif action == "gun":
 			print "You already have the gun!"
 		else:
 			custom_error.errortype(3)

@@ -2,7 +2,6 @@ import handler
 import sys
 import hint
 import custom_error
-import screen
 
 
 def standard(the_player):
@@ -67,6 +66,7 @@ def menu():
 			return user_input
 		except ValueError:
 			custom_error.errortype(1)
+			
 
 def load_menu():
 
@@ -82,7 +82,6 @@ def load_menu():
 				custom_error.errortype(1)
 
 
-
 def load_game():
 
 	while True:
@@ -95,6 +94,7 @@ def load_game():
 				print "Please type in 'Y' or 'N' only."
 		except ValueError:
 			custom_error.errortype(3)
+
 
 def game_help():
 
@@ -109,4 +109,5 @@ def game_help():
 	print " * INV: Will display contents of your inventory."
 	print " * CHAR: Shows character stats."
 	print " * QUIT: Quit game."
+	print "\n Don't use verbs with things, just nouns.\n"
 
