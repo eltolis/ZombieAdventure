@@ -5,9 +5,12 @@ def calculate(the_player, experience):
 	'out of the house': 5,
 	'gun': 10,
 	'push up': 10,
+<<<<<<< HEAD
 	'child zombie': 14,
 	'zombie male': 22,
 	'zombie overlord': 100
+=======
+>>>>>>> FETCH_HEAD
 	}
 
 	xp_value = experiences.get(experience)
