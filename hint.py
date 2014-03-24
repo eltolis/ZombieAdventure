@@ -6,4 +6,3 @@ def location(current_location):
 	}
 
 	print hints.get(current_location)
-	

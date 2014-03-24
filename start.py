@@ -13,7 +13,7 @@ def splash_screen():
 	print "*" * 80
 	print "***** Welcome to ZOMBIE ADVENTURE *****"
 	print "*" * 80
-	print "\nSelect option:"
+	print "Select option:"
 	print "1. Start a new game"
 	print "2. Load existing game"
 	print "3. Quit"

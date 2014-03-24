@@ -3,7 +3,11 @@ def calculate(the_player, experience):
 	experiences = {
 	'chocolate bar': 8,
 	'out of the house': 5,
-	'gun': 10
+	'gun': 10,
+	'push up': 10,
+	'child zombie': 14,
+	'zombie male': 22,
+	'zombie overlord': 100
 	}
 
 	xp_value = experiences.get(experience)

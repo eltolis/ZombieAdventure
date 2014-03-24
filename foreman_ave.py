@@ -1,0 +1,2 @@
+def enter():
+	return 'Junction'

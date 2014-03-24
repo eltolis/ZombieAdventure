@@ -2,31 +2,43 @@ import handler
 import sys
 import hint
 import custom_error
-
+import score
+import death
 
 def standard(the_player):
 
+	push_ups = 1
+
 	while True:
 		
-		user_input = str(raw_input("> ")).lower()
+		user_input = str(raw_input("> ")).lower()		
 
 		if user_input == "save":
 			handler.save(the_player)
 		elif user_input == "inventory" or user_input == "inv":
-			print the_player.inventory.keys()
+			print "Inventory:", ", ".join(the_player.inventory.keys())
 		elif user_input == "char":
 			print "\n---", the_player.name, "---"
 			print "Age:", the_player.age
-			print "Is male:", the_player.male
-			print "Hitpoints:", the_player.hitpoints
+			print "Is male?:", the_player.male
+			print "Hitpoints:", the_player.hitpoints, "HP"
 			print "Current location:", the_player.location
-			print "Score:", the_player.score, "\n"
+			print "Score:", the_player.score, "points","\n"
 		elif user_input == "help":
 			game_help()
 		elif user_input == "look":
-			print the_player.directions
+			print "You can go to:", ", ".join(the_player.directions)
 		elif user_input == "hint":
-			hint.location(the_player.location)
+			print "Hint:", hint.location(the_player.location)
+		# EASTER EGG
+		elif user_input == "push up" and the_player.age > 90:
+			death.type(4, the_player)
+		elif user_input == "push up" and push_ups > 18:
+			death.type(5, the_player)
+		elif user_input == "push up":
+			push_up = score.calculate(the_player, 'push up')
+			print "You've done %d sets of push ups." % push_ups
+			push_ups = push_ups + 1
 		elif user_input == "quit":
 
 			print "Are you sure? Y/N"
@@ -39,7 +51,7 @@ def standard(the_player):
 				elif to_quit == "n":
 					return ''
 				else:
-					custom_error.errortype(3)
+					custom_error.errortype(5)
 
 			print "Do you want to save? Y/N"
 				
@@ -52,7 +64,7 @@ def standard(the_player):
 				elif save_input == "n":
 					break
 				else:
-					custom_error.errortype(3)
+					custom_error.errortype(5)
 			exit(1)
 		else:
 			return user_input
@@ -91,9 +103,30 @@ def load_game():
 			if user_input == "y" or user_input == "n":
 				return user_input
 			else:
-				print "Please type in 'Y' or 'N' only."
+				custom_error.errortype(5)
 		except ValueError:
 			custom_error.errortype(3)
+
+def select_weapon():
+
+	while True:
+		try:
+			user_input = int(raw_input("\nSelect weapon from your inventory to attack:"))
+			return user_input
+		except ValueError:
+			custom_error.errortype(1)
+		except IndexError:
+			return None
+
+def select_enemy():
+
+	while True:
+		try:
+			user_input = int(raw_input("\nSelect enemy to attack:"))
+			return user_input
+		except ValueError:
+			custom_error.errortype(1)
+
 
 
 def game_help():
@@ -110,4 +143,5 @@ def game_help():
 	print " * CHAR: Shows character stats."
 	print " * QUIT: Quit game."
 	print "\n Don't use verbs with things, just nouns.\n"
+
 

@@ -1,15 +1,18 @@
 import random
 import sys
 import copy
+import glob
+import os.path
 import custom_error
 import prompt
 import game
 
 class Player(object):
 
-	def __init__(self,name,age,male,
-				inventory, max_hitpoints,hitpoints, 
-				location, visited, score,directions):
+	def __init__(self, name, age, male,
+				inventory, max_hitpoints, hitpoints, 
+				location, visited, score, directions):
+
 		self.name = name
 		self.age = age
 		self.male = male
@@ -28,14 +31,23 @@ class CreateNewPlayer(object):
 		print "-" * 80
 		print "Character creation"
 		print "-" * 80
-		
-		name = raw_input("Type your character name > ")
+
+
+		try:
+			check_name = self.check_for_name(str(raw_input("Name? > ")))
+		except ValueError:
+			custom_error.errortype(3)
+			self.generate()
+
+		name = copy.deepcopy(check_name)
+
 		try:
 			age = int(raw_input("Put down your age in numbers > "))
 		except ValueError:
 			custom_error.errortype(1)
 			custom_error.errortype(2)
 			self.generate()
+
 
 		if age <= 0:
 			print "Number must be larger than zero."
@@ -75,6 +87,7 @@ class CreateNewPlayer(object):
 				hitpoints = random.randint(27,29) * male_hp_bonus
 			else:
 				hitpoints = random.randint(16,22) * male_hp_bonus
+		
 		else:
 			female_hp_bonus = 1.2
 
@@ -102,5 +115,17 @@ class CreateNewPlayer(object):
 
 		return name, age, male, {}, max_hitpoints, hitpoints, 'apartment', [], 0, []
 
+	def check_for_name(self, name):
+
+		saved_games = glob.glob('*.sav')
+
+		save_file = [name + '.sav']
+
+		if save_file[0] in saved_games:
+			custom_error.errortype(6)
+			custom_error.errortype(2)
+			self.generate()
+		else:
+			return name
 
 

@@ -7,6 +7,7 @@ def enter(the_player):
 	the_player.directions = ['Curling Street']
 
 	print "\nLocation: ", the_player.location
+	print "-" * 30
 
 	if the_player.location in the_player.visited:
 		print "You've been here already. It's your old"

@@ -42,7 +42,7 @@ def load():
 	while num < num_of_saved_games:
 
 		for save_game in saved_games:
-			print num, save_game.strip(' .sav')
+			print str(num) + '.', save_game.strip(' .sav')
 			num = num + 1
 	
 	while True:
@@ -53,14 +53,14 @@ def load():
 			load_file = open(str(load_file_name),'r')
 			print "\n--- Your selected character ---"
 			print "Name: ", load_file.readline().strip("\n")
-			print "Age: ", load_file.readline().strip("\n")
-			print "Is male: ", load_file.readline().strip("\n")
-			print "Inventory: ", load_file.readline().strip("\n")
+			print "Age: ", load_file.readline().strip("\n"), "years"
+			print "Is male?: ", load_file.readline().strip("\n")
+			print "Inventory: ", ", ".join((ast.literal_eval(load_file.readline().strip("\n"))).keys())
 			load_file.readline().strip("\n") 
-			print "Hitpoints: ", load_file.readline().strip("\n")
+			print "Hitpoints: ", load_file.readline().strip("\n"), "HP"
 			print "Location: ", load_file.readline().strip("\n")
 			load_file.readline().strip("\n")
-			print "Score: ", load_file.readline().strip("\n")
+			print "Score: ", load_file.readline().strip("\n"), "points"
 			load_file.readline().strip("\n")
 			print "Save file:", load_file_name
 			print "Last played on:", time.ctime(os.path.getmtime(load_file_name))

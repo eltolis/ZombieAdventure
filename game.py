@@ -1,7 +1,10 @@
 import death
 import apartment
 import curling_street
-
+import junction
+import march_street
+import twentysecond_street
+import foreman_ave
 
 class Engine(object):
 
@@ -31,7 +34,11 @@ class Maps(object):
 
 	map_dict = {
 	'Apartment': apartment,
-	'Curling Street': curling_street
+	'Curling Street': curling_street,
+	'Junction': junction,
+	'March Street': march_street,
+	'22nd Street': twentysecond_street,
+	'Foreman Ave': foreman_ave	
 	}
 
 	def visited(self):

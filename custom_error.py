@@ -10,5 +10,7 @@ def errortype(error_id):
 		print "Wrong input"
 	elif error_id == 4:
 		raw_input("\nPress any key to continue")
+	elif error_id == 5:
+		print "Please type in 'Y' or 'N' only."
 	else:
 		pass 

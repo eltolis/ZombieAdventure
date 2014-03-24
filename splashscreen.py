@@ -2,13 +2,30 @@
 
 import ast
 import operator
+import custom_error
 
 def intro():
 	print """
-           _                                    _
-          (_'----------------------------------'_)
-          (_.==================================._)
-
+                      :::!~!!!!!:.
+                  .xUHWH!! !!?M88WHX:.
+                .X*#M@$!!  !X!M$$$$$$WWx:.
+               :!!!!!!?H! :!$!$$$$$$$$$$8X:
+              !!~  ~:~!! :~!$!#$$$$$$$$$$8X:
+             :!~::!H!<   ~.U$X!?R$$$$$$$$MM!
+             ~!~!!!!~~ .:XW$$$U!!?$$$$$$RMM!
+               !:~~~ .:!M"T#$$$$WX??#MRRMMM!
+               ~?WuxiW*`   `"#$$$$8!!!!??!!!
+             :X- M$$$$       `"T#$T~!8$WUXU~
+            :%`  ~#$$$m:        ~!~ ?$$$$$$
+          :!`.-   ~T$$$$8xx.  .xWW- ~""##*"
+.....   -~~:<` !    ~?T#$$@@W@*?$$      /`
+W$@@M!!! .!~~ !!     .:XUW$W!~ `"~:    :
+#"~~`.:x%`!!  !H:   !WM$$$$Ti.: .!WUn+!`
+:::~:!!`:X~ .: ?H.!u "$$$B$$$!W:U!T$$M~
+.~~   :X@!.-~   ?@WTWo("*$$$W$TH$! `
+Wi.~!X$?!-~    : ?$$$B$Wu("**$RM!
+$R@i.~~ !     :   ~$$$$$B$$en:``
+?MXT@Wx.~    :     ~"##*$$$$M~
 """
 
 def new_game():
@@ -26,6 +43,28 @@ def new_game():
 
 def score_board(the_player):
 	
+	ordinary_guy = {'Ordinary Guy': 100}
+
+	score_file = open('scoreboard.txt', 'r')
+
+	if len(score_file.read()) == 0:
+		score_file.close()
+		score_file = open('scoreboard.txt', 'w')
+		score_file.write(str(ordinary_guy))
+		score_file.close()
+	else:
+		score_file.close()
+		pass
+
+	score_file = open('scoreboard.txt', 'r')
+
+	scores = ast.literal_eval(score_file.readline())
+	score_file.close()
+	sorted_scores = sorted(scores.iteritems(), key = operator.itemgetter(1), reverse = True)
+	previous_hi_score_tuple = sorted_scores[0]
+	previous_hi_score = previous_hi_score_tuple[1]
+	get_highest_score(the_player.score, previous_hi_score)
+
 	score_file = open('scoreboard.txt', 'r')
 
 	if len(score_file.read()) == 0:
@@ -48,13 +87,39 @@ def score_board(the_player):
 
 	sorted_scores = sorted(scores.iteritems(), key = operator.itemgetter(1), reverse = True)
 
+
+
 	print "\n"
 	print "*" * 80
-	print "*** SCOREBOARD ***"
+	print "***** Scoreboard *****"
 	print "*" * 80
 	
+	num = 1
+
 	for name, score in sorted_scores:
-		print name, " ....... ", score
+		print str(num) + '.', name, " ....... ", score,"points"
+		num = num + 1
+
+def get_highest_score(score, previous_hi_score):
+
+	if score > previous_hi_score:
+		print chr(27) + "[2J"
+		intro()
+		print "!!! NEW HIGH SCORE !!!"
+		print "!!!%d points!!!" % score
+		print "Congratulations."
+		custom_error.errortype(4)
+
+	elif score >= previous_hi_score:
+		print chr(27) + "[2J"
+		print "!!! TIE HIGH SCORE !!!"
+		print "You have %d, same as previous winner!" % score
+		print "Congrats."
+		custom_error.errortype(4)
+		
+		
+	else:
+		pass
 
 
 
