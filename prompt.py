@@ -21,7 +21,7 @@ def standard(the_player):
 			print "\n---", the_player.name, "---"
 			print "Age:", the_player.age
 			print "Is male?:", the_player.male
-			print "Hitpoints:", the_player.hitpoints, "HP"
+			print "Hitpoints: %.2f" % the_player.hitpoints
 			print "Current location:", the_player.location
 			print "Score:", the_player.score, "points","\n"
 		elif user_input == "help":

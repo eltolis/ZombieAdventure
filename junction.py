@@ -24,16 +24,19 @@ def enter(the_player):
 		print "there's 22nd Street."
 		print "If you continue to go forward you will enter Foreman Ave."
 
-	action = prompt.standard(the_player)
+	while True:
+		action = prompt.standard(the_player)
 
-	if action == "curling street":
-		return 'Curling Street'
-	elif action == "march street":
-		return 'March Street'
-	elif action == "22nd street":
-		return '22nd Street'
-	elif action == 'foreman ave' or action == "foreman avenue":
-		return 'Foreman Ave'
-
-	else:
-		custom_error.errortype(3)
+		if action == "curling street":
+			return 'Curling Street'
+		elif action == "march street":
+			return 'March Street'
+		elif action == "22nd street":
+			return '22nd Street'
+		elif action == 'foreman ave' or action == "foreman avenue":
+			return 'Foreman Ave'
+		elif action == 'knife':
+			the_player.inventory['knife'] = 50
+			print "You pick up knife"
+		else:
+			custom_error.errortype(3)

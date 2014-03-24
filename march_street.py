@@ -28,6 +28,7 @@ def enter(the_player):
 	print "You successfully killed the enemy. Now you can safely"
 	print "look around."
 
-	action = prompt.standard(the_player)
+	while True:
+		action = prompt.standard(the_player)
 
 	
