@@ -7,7 +7,11 @@ def calculate(the_player, experience):
 	'push up': 10,
 	'child zombie': 14,
 	'zombie male': 22,
-	'zombie overlord': 100
+	'zombie overlord': 100,
+	'flashlight': 25,
+	'brass key': 15,
+	'charlie hit': 10,
+	'turn on lights': 10
 	}
 
 	xp_value = experiences.get(experience)
@@ -36,7 +40,7 @@ def calculate(the_player, experience):
 
 	the_player.score = the_player.score + calculated_xp
 
-	print "You get %d score points! %d total score. " % (calculated_xp, the_player.score)
+	print "\nYou get %d score points! %d total score.\n" % (calculated_xp, the_player.score)
 
 
 	return calculated_xp

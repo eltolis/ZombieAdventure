@@ -11,7 +11,8 @@ def type(death_id, the_player):
 			4: "\nYou're an old fart. You get heart attack from push ups and die seconds later.",
 			5: "\nYou exhaust yourself and later a zombie approaches you. Your lack of strength is unable to deal with it. You're dead now... and sort of alive but the game is over now.",
 			6: "\nYou reached zero/negative hitpoints and got killed by your enemy.",
-			7: "\nYou get bitten by zombie and eventually turn dead. You die."
+			7: "\nYou get bitten by zombie and eventually turn dead. You die.",
+			8: "\nLast thing you see is a barrel of shotgun and sparks in slow motion. 'Fucker' you hear old man mumbling."
 			}
 
 		get_death_type = death_dict.get(death_id)

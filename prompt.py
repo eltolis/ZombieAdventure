@@ -16,12 +16,20 @@ def standard(the_player):
 		if user_input == "save":
 			handler.save(the_player)
 		elif user_input == "inventory" or user_input == "inv":
-			print "Inventory:", ", ".join(the_player.inventory.keys())
+			print "Inventory:"
+			for key, item in the_player.inventory.items():
+				if item > 0:
+					print "- %s (%d)" % (key, item)
+				elif key == 'gun' or key == 'knife' or key == 'baseball bat':
+					print "- %s (%d uses left)" % (key, item)					
+				elif item <= 0:
+					pass
+
 		elif user_input == "char":
 			print "\n---", the_player.name, "---"
 			print "Age:", the_player.age
 			print "Is male?:", the_player.male
-			print "Hitpoints: %.2f" % the_player.hitpoints
+			print "Hitpoints: %.1f" % the_player.hitpoints, "/ %.1f" % the_player.max_hitpoints 
 			print "Current location:", the_player.location
 			print "Score:", the_player.score, "points","\n"
 		elif user_input == "help":
@@ -39,6 +47,8 @@ def standard(the_player):
 			push_up = score.calculate(the_player, 'push up')
 			print "You've done %d sets of push ups." % push_ups
 			push_ups = push_ups + 1
+		elif user_input == "visited":
+			print the_player.visited
 		elif user_input == "quit":
 
 			print "Are you sure? Y/N"
@@ -111,21 +121,23 @@ def select_weapon():
 
 	while True:
 		try:
-			user_input = int(raw_input("\nSelect weapon from your inventory to attack:"))
+			user_input = int(raw_input("\nSelect weapon (number) > "))
 			return user_input
 		except ValueError:
 			custom_error.errortype(1)
 		except IndexError:
 			return None
 
-def select_enemy():
+
+def conversation():
 
 	while True:
 		try:
-			user_input = int(raw_input("\nSelect enemy to attack:"))
+			user_input = int(raw_input("\nSelect answer (number) > "))
 			return user_input
 		except ValueError:
 			custom_error.errortype(1)
+
 
 
 

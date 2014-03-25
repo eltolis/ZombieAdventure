@@ -34,7 +34,7 @@ class CreateNewPlayer(object):
 
 
 		try:
-			check_name = self.check_for_name(str(raw_input("Name? > ")))
+			check_name = self.check_for_name(str(raw_input("Type down your name > ")))
 		except ValueError:
 			custom_error.errortype(3)
 			self.generate()

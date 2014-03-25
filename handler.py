@@ -55,9 +55,20 @@ def load():
 			print "Name: ", load_file.readline().strip("\n")
 			print "Age: ", load_file.readline().strip("\n"), "years"
 			print "Is male?: ", load_file.readline().strip("\n")
-			print "Inventory: ", ", ".join((ast.literal_eval(load_file.readline().strip("\n"))).keys())
-			load_file.readline().strip("\n") 
-			print "Hitpoints: ", load_file.readline().strip("\n"), "HP"
+			
+			inv_read = ast.literal_eval(load_file.readline())
+
+			print "Inventory:"
+			for key, item in inv_read.items():
+				if item > 0:
+					print "- %s (%d)" % (key, item)
+				elif key == 'gun' or key == 'knife' or key == 'baseball bat':
+					print "- %s (%d uses left)" % (key, item)					
+				elif item <= 0:
+					pass
+
+			print_max_hp = float(load_file.readline().strip("\n"))
+			print "Hitpoints: %.1f" % float(load_file.readline().strip("\n")),"/ %.1f" % print_max_hp, "HP"
 			print "Location: ", load_file.readline().strip("\n")
 			load_file.readline().strip("\n")
 			print "Score: ", load_file.readline().strip("\n"), "points"

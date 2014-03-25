@@ -5,6 +5,10 @@ import junction
 import march_street
 import twentysecond_street
 import foreman_ave
+import harrington_river
+import old_building
+import old_building_1f
+import old_building_2f
 
 class Engine(object):
 
@@ -43,7 +47,11 @@ class Maps(object):
 	'Junction': junction,
 	'March Street': march_street,
 	'22nd Street': twentysecond_street,
-	'Foreman Ave': foreman_ave	
+	'Foreman Ave': foreman_ave,
+	'Harrington River': harrington_river,
+	'Old Building': old_building,
+	'Old Building (first floor)': old_building_1f,
+	'Old Building (second floor)': old_building_2f
 	}
 
 	def visited(self):
