@@ -60,10 +60,18 @@ def load():
 
 			print "Inventory:"
 			for key, item in inv_read.items():
-				if item > 0:
+				if key == 'gun':
+					print "- %s (%d bullets left)" % (key, item)
+				elif key == 'knife' or key == 'baseball bat':
+					if item > 0 and item <= 5:
+						print_condition = "weak"
+					elif item > 5 and item <= 15:
+						print_condition = "OK"
+					else:
+						print_condition = "fine"
+					print "- %s (%s)" % (key, print_condition)					
+				elif item > 0:
 					print "- %s (%d)" % (key, item)
-				elif key == 'gun' or key == 'knife' or key == 'baseball bat':
-					print "- %s (%d uses left)" % (key, item)					
 				elif item <= 0:
 					pass
 

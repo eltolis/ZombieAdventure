@@ -48,6 +48,17 @@ class Encounter(object):
 			else:
 				pass
 
+		if 'knife' or 'baseball bat' in the_player.inventory.keys():
+			for weapon, condition in the_player.inventory.items():
+
+				if condition > 0 and condition <= 5:
+					print_condition = "weak"
+				elif condition > 5 and condition <= 15:
+					print_condition = "OK"
+				else:
+					print_condition = "fine"
+		else:
+			pass
 
 		chance_of_missing = random.randint(0,5)	
 
@@ -81,6 +92,12 @@ class Encounter(object):
 			print "\nYou miss!"
 		else:
 			print "\nYou hit %s with %s for %.2f hitpoint damage." % (the_enemy.enemy_name, use_weapon, randomize_attack)
+			if use_weapon == 'gun':
+				print "%d bullets left.\n" % the_player.inventory['gun']
+			elif use_weapon == 'knife' or use_weapon == 'baseball bat':
+				print "%s looks %s.\n" % (use_weapon.capitalize(), print_condition)
+			else:
+				pass
 
 		
 		custom_error.errortype(4)

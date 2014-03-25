@@ -18,10 +18,21 @@ def standard(the_player):
 		elif user_input == "inventory" or user_input == "inv":
 			print "Inventory:"
 			for key, item in the_player.inventory.items():
-				if item > 0:
+				condition = item
+
+				if condition > 0 and condition <= 5:
+					print_condition = "weak"
+				elif condition > 5 and condition <= 15:
+					print_condition = "OK"
+				else:
+					print_condition = "fine"
+				
+				if key == 'knife' or key == 'baseball bat':					
+					print "- %s (%s)" % (key, print_condition)
+				elif key == 'gun':
+					print "- %s (%d bullets left)" % (key, item)
+				elif item > 0:
 					print "- %s (%d)" % (key, item)
-				elif key == 'gun' or key == 'knife' or key == 'baseball bat':
-					print "- %s (%d uses left)" % (key, item)					
 				elif item <= 0:
 					pass
 
