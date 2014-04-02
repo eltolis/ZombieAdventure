@@ -1,3 +1,4 @@
+import random
 import handler
 import sys
 import hint
@@ -58,8 +59,33 @@ def standard(the_player):
 			push_up = score.calculate(the_player, 'push up')
 			print "You've done %d sets of push ups." % push_ups
 			push_ups = push_ups + 1
+		elif user_input == "heal":
+			if 'bandage' not in the_player.inventory.keys() or the_player.inventory['bandage'] == 0:
+				print "You do not have bandage."
+
+			elif the_player.hitpoints >= the_player.max_hitpoints:
+				print "You don't need to heal yourself."
+
+			elif the_player.inventory['bandage'] > 0:
+				healed_hp = random.uniform(11.0,15.0)
+				the_player.hitpoints = the_player.hitpoints + healed_hp
+				the_player.inventory['bandage'] = the_player.inventory['bandage'] - 1
+
+				if the_player.hitpoints > the_player.max_hitpoints:
+					over_hp = the_player.hitpoints - the_player.max_hitpoints
+					the_player.hitpoints = the_player.max_hitpoints
+					healed_hp = healed_hp - over_hp
+				else:
+					pass
+
+				print "\nYou heal %.1f hitpoints. (Now: %.1f/%.1f HP). %d bandages left." % (healed_hp, the_player.hitpoints, the_player.max_hitpoints, the_player.inventory['bandage'])
+			else:
+				pass
+
 		elif user_input == "visited":
 			print the_player.visited
+		elif user_input == "killed":
+			print the_player.killed
 		elif user_input == "quit":
 
 			print "Are you sure? Y/N"
@@ -164,7 +190,8 @@ def game_help():
 	print " * SAVE: Save your progress."
 	print " * INV: Will display contents of your inventory."
 	print " * CHAR: Shows character stats."
+	print " * HEAL: Will heal your char if you have bandage(s)."
 	print " * QUIT: Quit game."
-	print "\n Don't use verbs with things, just nouns.\n"
+	print "\n *** Don't use verbs with things, just nouns. ***\n"
 
 

@@ -88,6 +88,12 @@ class Encounter(object):
 			randomize_attack = attack_points * random.uniform(0.0,1.0)
 			the_enemy.enemy_hp = the_enemy.enemy_hp - randomize_attack
 
+		if 'Wanda' in the_player.visited:
+			wanda_attack = random.randint(10,12) * random.uniform(0.0,1.0)
+			the_enemy.enemy_hp = the_enemy.enemy_hp - wanda_attack
+		else:
+			pass
+
 		if randomize_attack <= 0:
 			print "\nYou miss!"
 		else:
@@ -98,6 +104,14 @@ class Encounter(object):
 				print "%s looks %s.\n" % (use_weapon.capitalize(), print_condition)
 			else:
 				pass
+
+		if 'Wanda' in the_player.visited:
+
+			if wanda_attack <= 0:
+				print "\nWanda misses!"
+			else:
+				print "\nWanda hits %s for %.2f hitpoints." % (the_enemy.enemy_name, wanda_attack)
+				custom_error.errortype(4)
 
 		
 		custom_error.errortype(4)
@@ -204,9 +218,14 @@ class Encounter(object):
 
 	
 	def start(self, the_player):
-		
+
+
 		create_enemy = enemies.SpawnEnemy(the_player, self.enemy)
-		created_enemy = create_enemy.generate(the_player, self.enemy)
+
+		if self.enemy == 'random':
+			created_enemy = create_enemy.generate_random(the_player)
+		else:
+			created_enemy = create_enemy.generate(the_player, self.enemy)
 
 		the_enemy = enemies.Enemy(*created_enemy)
 
@@ -249,6 +268,11 @@ class Encounter(object):
 
 		print "Congratulations you kill %s." % the_enemy.enemy_name
 		score.calculate(the_player, the_enemy.enemy_name)
+
+		if the_enemy.enemy_name not in the_player.killed.keys():
+			the_player.killed[the_enemy.enemy_name] = 1
+		else:
+			the_player.killed[the_enemy.enemy_name] = the_player.killed[the_enemy.enemy_name] + 1
 
 
 

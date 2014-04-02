@@ -11,7 +11,8 @@ class Player(object):
 
 	def __init__(self, name, age, male,
 				inventory, max_hitpoints, hitpoints, 
-				location, visited, score, directions):
+				location, visited, score, directions,
+				killed):
 
 		self.name = name
 		self.age = age
@@ -23,6 +24,7 @@ class Player(object):
 		self.visited = visited
 		self.score = score
 		self.directions = directions
+		self.killed = killed
 	
 class CreateNewPlayer(object):
 
@@ -113,7 +115,7 @@ class CreateNewPlayer(object):
 		max_hitpoints = copy.deepcopy(hitpoints)
 			
 
-		return name, age, male, {}, max_hitpoints, hitpoints, 'apartment', [], 0, []
+		return name, age, male, {}, max_hitpoints, hitpoints, 'apartment', [], 0, [], {}
 
 	def check_for_name(self, name):
 

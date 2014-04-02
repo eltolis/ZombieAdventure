@@ -16,6 +16,12 @@ def enter(the_player):
 		print "Old building is on your left side, ahead is Junction"
 		print "of Curling Street"
 
+		if 'charlie sleepover' in the_player.visited:
+			print "You hear a very distant noise, probably coming"
+			print "from Junction of Curling Street."
+		else:
+			pass
+
 	else:
 		the_player.visited.append(the_player.location)
 

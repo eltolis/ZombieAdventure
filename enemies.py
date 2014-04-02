@@ -43,8 +43,14 @@ class SpawnEnemy(object):
 
 		enemy_table = [
 		('child zombie', 5, 3),
+		('Dave', 11, 4),
 		('zombie male', 9, 5),
-		('zombie overlord', 100, 20)
+		('zombie overlord', 100, 20),
+		('infected dog', 3, 6),
+		('decomposed old man', 2, 1),
+		('decomposed old woman', 1, 1),
+		('teethless zombie', 1, 0),
+		('zombie captain', 22, 9, 8)
 		]
 
 		get_index = [i for i in enemy_table if fetch_enemy_name in i]
@@ -59,6 +65,27 @@ class SpawnEnemy(object):
 		fetch_enemy_name = created_enemy[0]
 		enemy_hp = created_enemy[1] * penalty
 		enemy_attack = created_enemy[2] * penalty
+
+		return fetch_enemy_name, enemy_hp, enemy_attack
+
+	def generate_random(self, the_player):
+
+		random_enemy_list = [
+		'child zombie',
+		'zombie male',
+		'infected dog',
+		'decomposed old man',
+		'decomposed old woman',
+		'teethless zombie'
+		]
+
+		penalty = self.player_penalty(the_player)
+		pick_random_enemy = random.choice(random_enemy_list)
+		random_enemy = self.enemy_type(pick_random_enemy)
+
+		fetch_enemy_name = random_enemy[0]
+		enemy_hp = random_enemy[1] * penalty
+		enemy_attack = random_enemy[2] * penalty
 
 		return fetch_enemy_name, enemy_hp, enemy_attack
 

@@ -4,14 +4,26 @@ def calculate(the_player, experience):
 	'chocolate bar': 8,
 	'out of the house': 5,
 	'gun': 10,
+	'bullets': 5,
 	'push up': 10,
 	'child zombie': 14,
+	'Dave': 22,
 	'zombie male': 22,
 	'zombie overlord': 100,
 	'flashlight': 25,
 	'brass key': 15,
 	'charlie hit': 10,
-	'turn on lights': 10
+	'turn on lights': 10,
+	'key': 50,
+	'infected dog': 17,
+	'decomposed old man': 5,
+	'decomposed old woman': 6,
+	'teethless zombie': 1,
+	'wanda decoy': 36,
+	'find motor': 15,
+	'cart': 20,
+	'zombie captian': 55,
+	'end game': 100
 	}
 
 	xp_value = experiences.get(experience)

@@ -12,7 +12,10 @@ def type(death_id, the_player):
 			5: "\nYou exhaust yourself and later a zombie approaches you. Your lack of strength is unable to deal with it. You're dead now... and sort of alive but the game is over now.",
 			6: "\nYou reached zero/negative hitpoints and got killed by your enemy.",
 			7: "\nYou get bitten by zombie and eventually turn dead. You die.",
-			8: "\nLast thing you see is a barrel of shotgun and sparks in slow motion. 'Fucker' you hear old man mumbling."
+			8: "\nLast thing you see is a barrel of shotgun and sparks in slow motion. 'Fucker' you hear old man mumbling.",
+			9: "\nYou feel a pinch on your finger as you turn cylinders on the lock again. Seconds later you stop breathing and you die.",
+			10: "\n'What a stupid answer.' You think to yourself as you feel the bullet coming through you.",
+			11: "\nAs you keep going the cracking sound gets louder. Eventually the bridge collapses and you lose conscience when you fall into river, drowning to death."
 			}
 
 		get_death_type = death_dict.get(death_id)

@@ -13,6 +13,11 @@ def enter(the_player):
 
 		print "You're back at %s of Curling Street again." % the_player.location
 		print "You've been here before."
+	
+		if the_player.location in the_player.visited and 'charlie sleepover' in the_player.visited:
+			print "The sound is definitely coming from Curling Street."
+		else:
+			pass
 
 	else:
 		the_player.visited.append(the_player.location)
@@ -26,8 +31,35 @@ def enter(the_player):
 
 	while True:
 		action = prompt.standard(the_player)
+		
+		if action == "curling street" and 'got the motor' in the_player.visited:
+			print "The zombies are still herding in Curling Street and"
+			print "you've already got what you need."
 
-		if action == "curling street":
+		elif action == "curling street" and 'charlie sleepover' in the_player.visited and 'Wanda' in the_player.visited:
+			print "From afar you see a herd of zombies scattered in the street."
+			print "Wanda: 'Let's go I have a plan.'"
+
+			custom_error.errortype(4)
+			return 'Curling Street'
+
+		elif action == "curling street" and 'charlie sleepover' in the_player.visited:
+			print "You go few meters but after a while you notice zombie sounds."
+			print "A swarm of deads is scattered around the whole Curling Street."
+			print "It doesn't look like a good idea to go there"
+			print "but if you really want you might give it a shot:\n"
+
+			while True:
+				go_to_swarm = raw_input("> Continue? Y/N").lower()
+				if go_to_swarm == "y":
+					return 'Curling Street'
+				elif go_to_swarm == "n":
+					print "You decide to return to junction."
+					break
+				else:
+					print "Type only 'Y' or 'N'."
+
+		elif action == "curling street":
 			return 'Curling Street'
 		elif action == "march street":
 			return 'March Street'

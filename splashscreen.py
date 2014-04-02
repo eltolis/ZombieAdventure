@@ -28,6 +28,20 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 ?MXT@Wx.~    :     ~"##*$$$$M~
 """
 
+def outro():
+	print"""
+            ^^                   @@@@@@@@@
+       ^^       ^^            @@@@@@@@@@@@@@@
+                            @@@@@@@@@@@@@@@@@@              ^^
+                           @@@@@@@@@@@@@@@@@@@@
+ ~~~~ ~~ ~~~~~ ~~~~~~~~ ~~ &&&&&&&&&&&&&&&&&&&& ~~~~~~~ ~~~~~~~~~~~ ~~~
+ ~         ~~   ~  ~       ~~~~~~~~~~~~~~~~~~~~ ~       ~~     ~~ ~
+   ~      ~~      ~~ ~~ ~~  ~~~~~~~~~~~~~ ~~~~  ~     ~~~    ~ ~~~  ~ ~~
+   ~  ~~     ~         ~      ~~~~~~  ~~ ~~~       ~~ ~ ~~  ~~ ~
+ ~  ~       ~ ~      ~           ~~ ~~~~~~  ~      ~~  ~             ~~
+       ~             ~        ~      ~      ~~   ~             ~ 
+	"""
+
 def new_game():
 	print "Winter has been long in the little town of"
 	print "Welton in Kentucky."
@@ -40,6 +54,13 @@ def new_game():
 	print "for past three weeks."
 	print "Now it's time to go out..."
 
+
+def killed_enemies(the_player):
+
+	print "\n--- Killed enemies ---"
+
+	for enemy,number in the_player.killed.items():
+		print enemy, ':', number
 
 def score_board(the_player):
 	
@@ -99,6 +120,9 @@ def score_board(the_player):
 	for name, score in sorted_scores:
 		print str(num) + '.', name, " ....... ", score,"points"
 		num = num + 1
+
+	custom_error.errortype(4)
+	killed_enemies(the_player)
 
 def get_highest_score(score, previous_hi_score):
 

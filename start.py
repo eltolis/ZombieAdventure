@@ -27,9 +27,13 @@ def splash_screen():
 			create_player_args = create_player.generate()
 			the_player = player.Player(*create_player_args)
 
+			if the_player.male == True:
+				gender = "man"
+			else:
+				gender = "woman"
+
 			print "\nYour name is %s and you're %d old." % (the_player.name, the_player.age)
-			print "It is %s that you're a man." % str(the_player.male).lower()
-			print "Your maximum health is %d hitpoints." % the_player.hitpoints
+			print "You're a %s. Your maximum hitpoints are %.1f." % (gender, the_player.hitpoints)
 
 			print "\n1. Continue to game"
 			print "2. Back to main menu"
