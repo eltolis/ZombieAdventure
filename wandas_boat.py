@@ -69,7 +69,7 @@ def enter(the_player):
 			print "is to start the motor."
 
 			the_player.visited.append('motor installed')
-		elif 'start' or 'key' or 'boat key' in action:
+		elif 'start' in action or 'key' in action or 'boat key' in action:
 			print "You put the boat key in the ignition."
 
 			if 'motor installed' in the_player.visited:
@@ -79,5 +79,7 @@ def enter(the_player):
 				return 'Ending'
 			else:
 				print "Nothing happens, the motor is still missing."
+		elif action == "marina":
+			return 'Marina'
 		else:
 			custom_error.errortype(3)

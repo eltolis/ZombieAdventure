@@ -22,7 +22,7 @@ def calculate(the_player, experience):
 	'wanda decoy': 36,
 	'find motor': 15,
 	'cart': 20,
-	'zombie captian': 55,
+	'zombie captain': 55,
 	'end game': 100
 	}
 
@@ -45,7 +45,7 @@ def calculate(the_player, experience):
 	elif age >= 33 and age < 59:
 		age_multiplier = 14
 	else:
-		age_multiplier = 9
+		age_multiplier = 13
 
 	
 	calculated_xp = xp_value * sex_multiplier * age_multiplier

@@ -98,8 +98,6 @@ def enter(the_player):
 			get_score = score.calculate(the_player, 'gun')
 		elif action == "policeman":
 			print "You already searched the policeman."
-		elif action == "hit":
-			fight.hit(the_player, 8.3)
 		elif action == "junction":
 			return 'Junction'
 		else:

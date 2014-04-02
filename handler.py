@@ -24,6 +24,7 @@ def save(the_player):
 	save_file.write(str(the_player.visited) + "\n")
 	save_file.write(str(the_player.score) + "\n")
 	save_file.write(str(the_player.directions) + "\n")
+	save_file.write(str(the_player.killed) + "\n")
 	save_file.close()
 	print "Saved as %s file" % save_file_name
 
@@ -98,6 +99,7 @@ def load():
 			load_player_visited = load_file.readline().strip("\n")
 			load_player_score = load_file.readline().strip("\n")
 			load_player_directions = load_file.readline().strip("\n")
+			load_player_killed = load_file.readline().strip()
 
 			load_file.close()
 
@@ -109,6 +111,7 @@ def load():
 			load_player_visited = convert_save_file(load_player_visited)
 			load_player_score = convert_save_file(load_player_score)
 			load_player_directions = convert_save_file(load_player_directions)
+			load_player_killed = convert_save_file(load_player_killed)
 
 			if choose_to_load == "y":
 
@@ -117,7 +120,7 @@ def load():
 									load_player_inventory, load_player_max_hitpoints, 
 									load_player_hitpoints, load_player_location, 
 									load_player_visited, load_player_score, 
-									load_player_directions)
+									load_player_directions, load_player_killed)
 
 				load_game = game.Engine(load_player, load_player_location)
 				load_game.move()

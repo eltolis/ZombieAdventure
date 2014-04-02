@@ -25,7 +25,7 @@ def workbench(the_player):
 	else:
 		print "and seems like %s is useful." % ' and '.join(available_items[0:len(available_items)])
 
-		if 'wheels' and 'wooden board' and 'broom' in available_items:
+		if 'wheels' in available_items and 'wooden board' in available_items and 'broom' in available_items:
 			print "\nGreat! You create a box from wooden boards and then you nail"
 			print "the bicycle wheels onto it. You use the broom stick as a lever"
 			print "so you can push it. You've created a carrying cart!"
@@ -36,13 +36,13 @@ def workbench(the_player):
 
 			the_player.inventory['cart'] = 1
 			score.calculate(the_player,'cart')
-		elif 'wheels' and 'wooden board' in available_items:
+		elif 'wheels' in available_items and 'wooden board' in available_items:
 			print "You get an idea to create a box from wooden boards and attach"
 			print "the bicycle wheels but you still need some kind of lever"
 			print "to push it."
-		elif 'wheels' and 'broom' in available_items:
+		elif 'wheels' in available_items and 'broom' in available_items:
 			print "You've got wheels and broom but there is still something missing."
-		elif 'broom' and 'wooden board' in available_items:
+		elif 'broom' in available_items and 'wooden board' in available_items:
 			print "You can try to build a box from wooden boards and attach"
 			print "the broom stick, but still the thing will be unmovable."
 		elif 'wheels' in available_items:
@@ -76,8 +76,12 @@ def enter(the_player):
 
 		custom_error.errortype(4)
 
+		the_player.visited.remove('Wanda')
+
 		encounter = fight.Encounter(the_player, 'random')
 		encounter.start(the_player)
+
+		the_player.visited.append('Wanda')
 
 		print "That was close!"
 

@@ -40,6 +40,8 @@ def enter(the_player):
 
 		elif 'stairs' in action or 'path' in action or 'marina' in action:
 			return 'Marina'
+		elif action == "march street":
+			return 'March Street'
 		else:
 			custom_error.errortype(3)
 

@@ -128,8 +128,6 @@ def enter(the_player):
 	print "\nLocation:", the_player.location
 	print "-" * 30
 
-	the_player.visited.remove('Wanda')
-
 	if the_player.location in the_player.visited:
 		print "You're back at the shop."
 
@@ -164,7 +162,6 @@ def enter(the_player):
 			print "\nYou put the motor in the cart and head out of Motor shop to"
 			print "meet Wanda at Junction."
 			the_player.visited.append('got the motor')
-			the_player.visited.append('Wanda')
 			print "Thankfully the zombie herd is on the other"
 			print "side of the street, on the spot where"
 			print "Wanda taunted it. You don't see her"
