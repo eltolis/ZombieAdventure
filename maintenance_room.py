@@ -107,7 +107,7 @@ def enter(the_player):
 			workbench(the_player)
 		elif action == "paper boxes" or action == "boxes":
 			print "You don't find anything useful."
-		elif action == "wooden crates" or action == "crates":
+		elif action == "wooden crates" or action == "crates" or action == "crate":
 			if 'wooden board' in the_player.inventory.keys():
 				print "The crates are already disassembled and there is"
 				print "nothing of use to you."

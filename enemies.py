@@ -50,7 +50,8 @@ class SpawnEnemy(object):
 		('decomposed old man', 2, 1),
 		('decomposed old woman', 1, 1),
 		('teethless zombie', 1, 0),
-		('zombie captain', 22, 9, 8)
+		('zombie captain', 22, 9, 8),
+		('zombie with missing arm', 5, 10)
 		]
 
 		get_index = [i for i in enemy_table if fetch_enemy_name in i]
@@ -76,7 +77,8 @@ class SpawnEnemy(object):
 		'infected dog',
 		'decomposed old man',
 		'decomposed old woman',
-		'teethless zombie'
+		'teethless zombie',
+		'zombie with missing arm'
 		]
 
 		penalty = self.player_penalty(the_player)

@@ -81,7 +81,19 @@ def standard(the_player):
 				print "\nYou heal %.1f hitpoints. (Now: %.1f/%.1f HP). %d bandages left." % (healed_hp, the_player.hitpoints, the_player.max_hitpoints, the_player.inventory['bandage'])
 			else:
 				pass
+		elif user_input == "map":
+			if 'map' in the_player.inventory.keys():
+				print """
 
+ Left____Another St.____Longer St.____Row of H.
+   |                                     |
+Suburbs...Very long st.____Small h.___Junction____Mansion
+   |                                     |
+ Right____Regular St.____Shorter St.____St. w/ tree
+"""				
+
+			else:
+				print "You don't have a map."
 		elif user_input == "visited":
 			print the_player.visited
 		elif user_input == "killed":

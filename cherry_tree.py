@@ -4,7 +4,11 @@ import custom_error
 def enter(the_player):
 
 	the_player.location = 'Street with large mansion'
-	the_player.directions = ['Suburb Junction','Mansion']
+
+	if 'Wanda' in the_player.visited:
+		the_player.directions = ['Suburb Junction','Wanda\'s house']
+	else:
+		the_player.directions = ['Suburb Junction','Mansion']
 
 	print "\nLocation:", the_player.location
 	print "-" * 30

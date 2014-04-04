@@ -35,9 +35,14 @@ def enter(the_player):
 		if action == "maintenance room" or action == "maintenance":
 			return 'Maintenance room'
 		elif "broom" in action:
-			print "You take the broom, it looks like it might"
-			print "be useful for something."
+			if 'broom' not in the_player.inventory.keys():
+				print "You take the broom, it looks like it might"
+				print "be useful for something."
 
-			the_player.inventory['broom'] = 1
+				the_player.inventory['broom'] = 1
+			else:
+				print "You already have the broom."
+		elif 'toilet' in action:
+			print "You don't feel like going."
 		else:
 			custom_error.errortype(3)

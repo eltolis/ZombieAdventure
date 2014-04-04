@@ -58,6 +58,7 @@ def enter(the_player):
 
 			while True:
 				rest = str(raw_input("Y/N > ")).lower()
+				the_player.visited.append('charlie sleepover')
 
 				if rest == "y":
 					the_player.hitpoints = the_player.max_hitpoints

@@ -4,10 +4,18 @@ import custom_error
 def enter(the_player):
 
 	the_player.location = 'Suburb Junction'
-	the_player.directions = ['Street with a tree',
-							'Shorter street',
-							'Street with small houses',
-							'Street with large mansion']
+
+	if 'Wanda' in the_player.visited:
+		the_player.directions = ['Street with a tree',
+								'Row of houses',
+								'Street with small houses',
+								'Wanda\'s house street']
+
+	else:
+		the_player.directions = ['Street with a tree',
+								'Row of houses',
+								'Street with small houses',
+								'Street with large mansion']
 
 	print "\nLocation:", the_player.location
 	print "-" * 30
@@ -21,7 +29,7 @@ def enter(the_player):
 
 		print "You enter a junction with the same houses"
 		print "around. You can go to:"
-		print "%s." % the_player.directions[:]
+		print "%s." % ','.join(the_player.directions)
 		print "You're not sure where to go but you hear"
 		print "louder dog barking from the direction"
 		print "of Street with a large mansion."
@@ -31,11 +39,11 @@ def enter(the_player):
 
 		if action == "street with a tree" or 'tree' in action:
 			return 'Suburb 6'
-		elif action == "shorter street":
+		elif action == "row of houses" or 'row' in action:
 			return 'Suburb 5'
 		elif action == "street with small houses" or 'small houses' in action:
 			return 'Small houses'
-		elif action == "street with large mansion" or 'mansion' in action:
+		elif action == "street with large mansion" or 'mansion' in action or 'wanda' in action:
 			return 'Cherry trees'
 		else:
 			custom_error.errortype(3)

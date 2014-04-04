@@ -5,7 +5,11 @@ import death
 def enter(the_player):
 
 	the_player.location = 'Wanda\'s house'
-	the_player.directions = ['Street with large mansion']
+
+	if 'Wanda' in the_player.visited:
+		the_player.directions = ['Wanda\'s house street']
+	else:
+		the_player.directions = ['Street with large mansion']
 
 	print "\nLocation:", the_player.location
 	print "-" * 30
@@ -159,10 +163,8 @@ def enter(the_player):
 	while True:
 		action = prompt.standard(the_player)
 
-		if action == "street with large mansion" or 'out' in action:
+		if action == "street with large mansion" or 'out' in action or 'street' in action:
 			return 'Cherry trees'
-		elif action:
-			pass
 		else:
 			custom_error.errortype(3)
 

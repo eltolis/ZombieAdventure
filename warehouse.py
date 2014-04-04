@@ -72,6 +72,15 @@ def single_shelf(shelf_id, the_player):
 				the_player.visited.append('warehouse bullets')
 			else:
 				print "\nThere is nothing else inside."
+		elif select == "h4" and shelf_id == "h":
+			print "You find a note:"
+			print "'PUSH UP' to be the best."
+			score.calculate(the_player,'easter egg')
+			return 'Warehouse'
+		elif select == "q2" and shelf_id == "q":
+			print "You find a note:"
+			print "'I wish I could write better code...' - author."
+			score.calculate(the_player,'easter egg')
 		elif shelf_id not in select:
 			print "That container is not here."
 		else:

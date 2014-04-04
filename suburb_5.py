@@ -3,7 +3,7 @@ import custom_error
 
 def enter(the_player):
 
-	the_player.location = 'Shorter street'
+	the_player.location = 'Row of houses'
 	the_player.directions = ['Longer street','Suburb Junction']
 
 	print "\nLocation:", the_player.location

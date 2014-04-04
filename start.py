@@ -12,7 +12,7 @@ def splash_screen():
 	splashscreen.intro()
 	print "*" * 80
 	print "***** Welcome to ZOMBIE ADVENTURE ******"
-	print "** version 0.1 - Ondrej Synacek, 2014 **"
+	print "**  version 1 - Ondrej Synacek, 2014  **"
 	print "*" * 80
 	print "Select option:"
 	print "1. Start a new game"

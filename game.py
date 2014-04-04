@@ -18,6 +18,8 @@ import suburb_4
 import suburb_5
 import suburb_6
 import pirate_house
+import basement
+import kitchen
 import suburb_junction
 import cherry_tree
 import small_houses
@@ -82,6 +84,8 @@ class Maps(object):
 	'Suburb Junction': suburb_junction,
 	'Small houses': small_houses,
 	'House with pirate flag': pirate_house,
+	'Basement': basement,
+	'Kitchen': kitchen,
 	'Cherry trees': cherry_tree,
 	'A very long street': very_long_street,
 	'Wandas House': wandas_house,

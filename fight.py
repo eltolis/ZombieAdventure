@@ -18,8 +18,8 @@ class Encounter(object):
 
 		weapon_stats = {
 		'fists': random.randint(1,6),
-		'gun': random.randint(9,40),
-		'knife': random.randint(7,15),
+		'gun': random.randint(30,35),
+		'knife': random.randint(10,15),
 		'baseball bat': random.randint(8,13) + random.randint(2,6),
 		}
 
@@ -111,7 +111,6 @@ class Encounter(object):
 				print "\nWanda misses!"
 			else:
 				print "\nWanda hits %s for %.2f hitpoints." % (the_enemy.enemy_name, wanda_attack)
-				custom_error.errortype(4)
 
 		
 		custom_error.errortype(4)
@@ -177,40 +176,40 @@ class Encounter(object):
 			elif age < 8:
 				bonus = 0.6
 			elif age < 12:
-				bonus = 1
+				bonus = 1.1
 			elif age < 17:
-				bonus = 2
+				bonus = 1.6
 			elif age < 26:
-				bonus = 2.8
+				bonus = 2.0
 			elif age < 33:
-				bonus = 3
+				bonus = 2.3
 			elif age < 48:
-				bonus = 2.6
+				bonus = 2.0
 			elif age < 61:
-				bonus = 0.9
+				bonus = 1.1
 			elif age < 72:
-				bonus = 0.4
+				bonus = 0.8
 			else:
-				bonus = 0.1
+				bonus = 0.2
 		else:
 			if age < 4:
 				bonus = 0.2
 			elif age < 8:
 				bonus = 0.6
 			elif age < 12:
-				bonus = 0.9
+				bonus = 1.0
 			elif age < 17:
-				bonus = 1.8
+				bonus = 1.4
 			elif age < 26:
-				bonus = 2.1
+				bonus = 1.9
 			elif age < 33:
-				bonus = 2.7
+				bonus = 1.9
 			elif age < 48:
-				bonus = 2
+				bonus = 1.8
 			elif age < 61:
-				bonus = 0.6
+				bonus = 1.0
 			elif age < 72:
-				bonus = 0.2
+				bonus = 0.5
 			else:
 				bonus = 0.1
 

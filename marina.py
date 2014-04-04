@@ -24,7 +24,7 @@ def enter(the_player):
 		print "boats with paddle and larger yellow boat."
 
 		if 'Wanda' in the_player.visited:
-			print "That yellow boat is the one!"
+			print "Wanda: 'That yellow boat is the one!'"
 		else:
 			pass
 
