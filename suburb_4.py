@@ -28,7 +28,7 @@ def enter(the_player):
 	while True:
 		action = prompt.standard(the_player)
 
-		if action == "another street":
+		if action == "regular street":
 			return 'Suburb 2'
 		elif action == "street with a tree" or 'tree' in action:
 			return 'Suburb 6'

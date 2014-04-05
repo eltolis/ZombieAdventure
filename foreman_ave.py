@@ -87,7 +87,7 @@ def enter(the_player):
 			return 'Junction'
 		elif 'waste' in action or 'container' in action:
 			container(the_player)
-		elif 'window' in action or 'commercial' in action:
+		elif 'window' in action or 'commercial' in action or 'building' in action:
 			if glass == 1:
 				death.type(12,the_player)
 			else:

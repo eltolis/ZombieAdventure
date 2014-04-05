@@ -7,7 +7,7 @@ def enter(the_player):
 
 	the_player.location = 'Kitchen'
 
-	the_player.directions = ['House with pirate flag']
+	the_player.directions = ['Hallway of the house']
 
 	print "\nLocation:", the_player.location
 	print "-" * 30
@@ -27,8 +27,10 @@ def enter(the_player):
 			print "Wanda: 'We've been here before with"
 			print "Dave to get some food.'"
 		else:
-			print "There are several shelves and four cupboards"
-			print "above the sink."
+			pass
+		
+		print "There are several shelves and four cupboards"
+		print "above the sink."
 
 	cupboard = 1
 
@@ -36,7 +38,7 @@ def enter(the_player):
 		
 		action = prompt. standard(the_player)
 
-		if 'house' in action or 'out' in action:
+		if 'house' in action or 'out' in action or 'hallway' in action:
 			return 'House with pirate flag'
 		elif 'cupboard' in action:
 			print "You search one of the cupboards..."
@@ -47,5 +49,7 @@ def enter(the_player):
 				score.calculate(the_player,'bullets')
 			else:
 				print "...and nothing. Maybe try looking in the other one?"
+		elif 'shelves' in action or 'shelf' in action:
+			print "Nothing in the shelves."
 		else:
 			custom_error.errortype(3)

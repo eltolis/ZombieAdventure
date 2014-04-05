@@ -32,7 +32,7 @@ def enter(the_player):
 
 		action = prompt.standard(the_player)
 
-		if action == "maintenance room" or action == "maintenance":
+		if action == "maintenance room" or action == "maintenance" or 'out' in action:
 			return 'Maintenance room'
 		elif "broom" in action:
 			if 'broom' not in the_player.inventory.keys():

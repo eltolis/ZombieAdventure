@@ -48,7 +48,7 @@ def enter(the_player):
 
 	the_player.location = 'Basement'
 
-	the_player.directions = ['House with pirate flag']
+	the_player.directions = ['Hallway of the house']
 
 	print "\nLocation:", the_player.location
 	print "-" * 30
@@ -81,7 +81,7 @@ def enter(the_player):
 		
 		action = prompt. standard(the_player)
 
-		if 'house' in action or 'out' in action:
+		if 'house' in action or 'out' in action or 'hallway' in action:
 			return 'House with pirate flag'
 		elif 'junk' in action:
 			junk(the_player)

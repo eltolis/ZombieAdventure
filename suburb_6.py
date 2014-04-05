@@ -31,5 +31,7 @@ def enter(the_player):
 			return 'Suburb 4'
 		elif action == "suburb junction" or action == "junction":
 			return 'Suburb Junction'
+		elif 'tree' in action:
+			print "You come to the tree and see W + D carved into it."
 		else:
 			custom_error.errortype(3)

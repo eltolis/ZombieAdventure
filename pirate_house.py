@@ -11,7 +11,7 @@ def enter(the_player):
 	elif the_player.location in the_player.visited and 'dog in pirate house' not in the_player.visited:
 		the_player.directions = ['Shorter street','Left door','Right door','Stairs']
 	else:
-		['Shorter street','Left Door','Kitchen','Stairs']
+		the_player.directions = ['Shorter street','Left Door','Kitchen','Stairs']
 
 	print "\nLocation:", the_player.location
 	print "-" * 30

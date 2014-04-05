@@ -42,16 +42,16 @@ class SpawnEnemy(object):
 	def enemy_type(self, fetch_enemy_name):
 
 		enemy_table = [
-		('child zombie', 5, 3),
-		('Dave', 11, 4),
-		('zombie male', 9, 5),
+		('child zombie', 5, 2),
+		('Dave', 11, 3),
+		('zombie male', 9, 4),
 		('zombie overlord', 100, 20),
-		('infected dog', 3, 6),
+		('infected dog', 3, 4),
 		('decomposed old man', 2, 1),
 		('decomposed old woman', 1, 1),
 		('teethless zombie', 1, 0),
-		('zombie captain', 22, 9, 8),
-		('zombie with missing arm', 5, 10)
+		('zombie captain', 65, 13, 7),
+		('zombie with missing arm', 5, 2)
 		]
 
 		get_index = [i for i in enemy_table if fetch_enemy_name in i]

@@ -189,7 +189,7 @@ def enter(the_player):
 		if "first floor" in action:
 			return 'Old Building (first floor)'
 		elif "chocolate" in action and 'Wanda' in the_player.visited:
-			print "No thanks."
+			print "Charlie: 'No thanks.'"
 		elif action == "chocolate" and 'flashlight' in the_player.inventory.keys() or action == "chocolate bar" and 'flashlight' in the_player.inventory.keys():
 			print "Sorry, I don't have anything else to trade."
 		elif action == "chocolate" or action == "chocolate bar" and the_player.inventory['chocolate bar'] >= 1:

@@ -84,6 +84,7 @@ def standard(the_player):
 		elif user_input == "map":
 			if 'map' in the_player.inventory.keys():
 				print """
+				WELTON SUBURBS MAP
 
  Left____Another St.____Longer St.____Row of H.
    |                                     |
