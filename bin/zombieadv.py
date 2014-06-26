@@ -1,18 +1,18 @@
 import sys
-import custom_error
-import player
-import handler
-import prompt
-import splashscreen
-import game
-import death
+from zombieadventure import custom_error
+from zombieadventure import player
+from zombieadventure import handler
+from zombieadventure import prompt
+from zombieadventure import splashscreen
+from zombieadventure import game
+from zombieadventure import death
 
 def splash_screen():
 	print chr(27) + "[2J"
 	splashscreen.intro()
 	print "*" * 80
 	print "***** Welcome to ZOMBIE ADVENTURE ******"
-	print "**  version 1 - Ondrej Synacek, 2014  **"
+	print "***  version 1.0.1 - comatory, 2014  ***"
 	print "*" * 80
 	print "Select option:"
 	print "1. Start a new game"
