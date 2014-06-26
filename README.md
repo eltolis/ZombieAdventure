@@ -20,13 +20,13 @@ Text-based, oldschool style adventure game that takes place in zombie-ridden tow
 
 ## Installation
 
-1. Using `setup.py` to install from source:
+1. Using `setup.py` to install from source [tar](https://pypi.python.org/packages/source/Z/ZombieAdventure/ZombieAdventure-1.0.1.tar.gz#md5=29a7092a90fc591096279b9e83fb8408):
 
-	python setup.py install
+	`python setup.py install`
 
 2. Fetching from __pip__:
 
-	pip install ZombieAdventure
+	`pip install ZombieAdventure`
 
 ZombieAdventure uses standard Python 2.7 libraries and has no external dependencies.
 
