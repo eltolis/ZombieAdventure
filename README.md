@@ -30,6 +30,8 @@ Text-based, oldschool style adventure game that takes place in zombie-ridden tow
 
 ZombieAdventure uses standard Python 2.7 libraries and has no external dependencies.
 
+If you do not wish to install ZA on your system and want to run it directly, just navigate to `bin/` folder and launch it from there by typing: `python zombieadv.py`.
+
 
 ## Start the game
 
